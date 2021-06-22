@@ -1,9 +1,10 @@
 import React from 'react';
+import Layout from '../components/layout';
 
 const Home = () => (
-  <div>
+  <Layout>
     <h2>React redux boileplate </h2>
-  </div>
+  </Layout>
 );
 
 export default Home;

@@ -12,7 +12,8 @@ const setError = error => ({
 });
 const getUsers = () => async dispatch => {
   axios.get('/api/users').then(users => {
-    dispatch(setUsers(users));
+    const { data } = users;
+    dispatch(setUsers(data.users));
   }).catch(error => {
     dispatch(setError(error));
   });
