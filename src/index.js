@@ -5,6 +5,9 @@ import './styles/index.css';
 import App from './components/App';
 import store from './redux/store';
 import reportWebVitals from './reportWebVitals';
+import makeServer from './server';
+
+makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
