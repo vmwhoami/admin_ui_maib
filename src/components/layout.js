@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import getUsers from '../redux/reducer/actions';
@@ -9,9 +10,9 @@ const Layout = ({ children }) => {
     dispatch(getUsers());
   }, []);
   return (
-    <div>
+    <Container fluid>
       {children}
-    </div>
+    </Container>
   );
 };
 

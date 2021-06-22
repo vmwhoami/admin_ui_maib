@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 import Home from '../pages/Home';
 
 function App() {
   return (
-    <div className="container">
+    <Container fluid>
       <BrowserRouter>
         <Switch>
           <Route path="/" component={Home} exact />
@@ -11,7 +12,7 @@ function App() {
         </Switch>
 
       </BrowserRouter>
-    </div>
+    </Container>
   );
 }
 
