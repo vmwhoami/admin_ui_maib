@@ -44,3 +44,11 @@ code {
   background-color: #2b44726e;
   z-index: 3;
 }
+
+.navbar-green{
+  background-color: #036647 !important;
+}
+
+.logo{
+  font-size: 2rem
+}

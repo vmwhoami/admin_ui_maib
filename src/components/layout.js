@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import getUsers from '../redux/reducer/actions';
+import NavBar from './navbar/NavBar';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
@@ -10,8 +11,11 @@ const Layout = ({ children }) => {
     dispatch(getUsers());
   }, []);
   return (
-    <Container fluid>
-      {children}
+    <Container className="px-0" fluid>
+      <NavBar />
+      <Row>
+        {children}
+      </Row>
     </Container>
   );
 };
