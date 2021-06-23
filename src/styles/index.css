@@ -5,7 +5,7 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 body {
@@ -62,4 +62,8 @@ code {
 }
 .title{
   background-color: #7AA53C;
+}
+
+.green{
+  color:#7AA53C;
 }
