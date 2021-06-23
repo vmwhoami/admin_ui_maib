@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
   return (
     <Container className="px-0" fluid>
       <NavBar />
-      <Row className="w-100">
+      <Row className="w-100 mx-0">
         <LeftBar />
         <Col xs={9}>
           {children}

@@ -54,10 +54,12 @@ code {
 }
 .left-bar{
   background-color: #FAFAFA;
-  box-shadow: 4px 3px 17px -3px rgba(0,0,0,0.20);
+  box-shadow: 4px 3px 10px -3px rgba(0,0,0,0.20);
 }
 
 .cust-button{
  font-size: 20px !important;
-  
+}
+.title{
+  background-color: #7AA53C;
 }
