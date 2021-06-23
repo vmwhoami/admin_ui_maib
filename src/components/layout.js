@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import getUsers from '../redux/reducer/actions';
 import NavBar from './navbar/NavBar';
+import LeftBar from './leftBar/LeftBar';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
@@ -13,8 +14,11 @@ const Layout = ({ children }) => {
   return (
     <Container className="px-0" fluid>
       <NavBar />
-      <Row>
-        {children}
+      <Row className="w-100">
+        <LeftBar />
+        <Col xs={9}>
+          {children}
+        </Col>
       </Row>
     </Container>
   );
