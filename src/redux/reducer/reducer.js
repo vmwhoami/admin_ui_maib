@@ -8,7 +8,7 @@ const initial = {
   errors: {},
   idnpSelected: '',
   phoneSelected: '',
-  dataSelected: '',
+  dateSelected: '',
 };
 
 const reducer = (state = initial, action) => {
@@ -20,7 +20,7 @@ const reducer = (state = initial, action) => {
     case SET_PHONE:
       return { ...state, phoneSelected: action.payload };
     case SET_ACCESS_DATE:
-      return { ...state, dataSelected: action.payload };
+      return { ...state, dateSelected: action.payload };
     case ERROR:
       return { ...state, error: !state.error, errors: action.payload };
     default:

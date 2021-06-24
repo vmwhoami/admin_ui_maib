@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   Form, Row, Col, Button,
 } from 'react-bootstrap';
+import { setIdnp, setPhone, setAccessDate } from '../../redux/reducer/actions';
 
 const FindUser = () => {
+  const dispatch = useDispatch();
   const [fields, setFields] = useState({
     idnp: '',
     phone: '',
@@ -17,10 +20,21 @@ const FindUser = () => {
     });
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('Submitted');
+    dispatch(setIdnp(fields.idnp));
+    dispatch(setPhone(fields.phone));
+    dispatch(setAccessDate(fields.date));
+  };
+
   return (
     <>
       <h4>Cauta Uilizator</h4>
-      <Form as={Row}>
+      <Form
+        noValidate
+        onSubmit={handleSubmit}
+      >
         <Col lg={8}>
           <Row className="mb-3 d-flex align-items-end">
             <Form.Group as={Col} controlId="formGridCity">
@@ -58,7 +72,13 @@ const FindUser = () => {
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridZip">
-              <Button className="w-100 rounded-0 title text-uppercase border-0">Cauta</Button>
+              <Button
+                type="submit"
+                className="w-100 rounded-0 title text-uppercase border-0"
+
+              >
+                Cauta
+              </Button>
             </Form.Group>
           </Row>
         </Col>

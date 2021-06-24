@@ -6,6 +6,9 @@ const UsersRows = ({ user }) => {
   const {
     numele, prenumele, idnp, phone, lastTransaction, panCard,
   } = user;
+  const date = new Date(lastTransaction);
+  const displayDate = `${date.getHours()}: ${date.getMinutes()} 
+  ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
   return (
     <Row className="border-bottom py-1 ">
       <Col>
@@ -18,7 +21,7 @@ const UsersRows = ({ user }) => {
       <Col><span>{idnp}</span></Col>
       <Col><span>{phone}</span></Col>
       <Col><span>{panCard}</span></Col>
-      <Col><span>{lastTransaction}</span></Col>
+      <Col><span>{displayDate}</span></Col>
     </Row>
   );
 };
