@@ -34,6 +34,7 @@ export default () => {
           prenumele: generateName(1),
           idnp: numGen(13),
           phone: phone(),
+          panCard: numGen(16),
           lastTransaction: dateGenerator(new Date(2014, 0, 1), new Date()),
         });
       }

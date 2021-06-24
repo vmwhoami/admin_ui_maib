@@ -63,7 +63,9 @@ code {
 .title{
   background-color: #7AA53C;
 }
-
+.btn.title:hover{
+  background-color: #036647 !important;
+}
 .green{
   color:#7AA53C;
 }
