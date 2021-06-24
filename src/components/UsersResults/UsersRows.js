@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
+import formatDate from '../../utils';
 
 const UsersRows = ({ user }) => {
   const {
     numele, prenumele, idnp, phone, lastTransaction, panCard,
   } = user;
-  const date = new Date(lastTransaction);
-  const displayDate = `${date.getHours()}: ${date.getMinutes()} 
-  ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+  const displayDate = formatDate(lastTransaction);
   return (
     <Row className="border-bottom py-1 ">
       <Col>

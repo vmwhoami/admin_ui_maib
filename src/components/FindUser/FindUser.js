@@ -22,10 +22,9 @@ const FindUser = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Submitted');
-    dispatch(setIdnp(fields.idnp));
-    dispatch(setPhone(fields.phone));
-    dispatch(setAccessDate(fields.date));
+    dispatch(setIdnp(fields.idnp.trim()));
+    dispatch(setPhone(fields.phone.trim()));
+    dispatch(setAccessDate(fields.date.trim()));
   };
 
   return (
