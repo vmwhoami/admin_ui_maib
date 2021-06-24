@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import getUsers from '../redux/reducer/actions';
+import { getUsers } from '../redux/reducer/actions';
 import NavBar from './navbar/NavBar';
 import LeftBar from './leftBar/LeftBar';
 
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
       <NavBar />
       <Row className="w-100 mx-0">
         <LeftBar />
-        <Col xs={9}>
+        <Col lg={9} sm={12}>
           {children}
         </Col>
       </Row>

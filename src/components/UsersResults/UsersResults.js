@@ -13,11 +13,11 @@ const UsersResults = () => {
         </h2>
       </Row>
       <Row className="border-bottom pb-2 ">
-        <Col><span className="bolder">Numele Prenumele</span></Col>
-        <Col><span>IDNP</span></Col>
-        <Col><span>Nr.Telefon</span></Col>
-        <Col><span>PAN Card</span></Col>
-        <Col><span>Last Transaction</span></Col>
+        <Col><h6>Numele Prenumele</h6></Col>
+        <Col><h6>IDNP</h6></Col>
+        <Col><h6>Nr.Telefon</h6></Col>
+        <Col><h6>PAN Card</h6></Col>
+        <Col><h6>Last Transaction</h6></Col>
       </Row>
       {users.map(user => (
         <UsersRows key={user.id} user={user} />

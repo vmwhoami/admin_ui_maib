@@ -1,15 +1,26 @@
-import { GET_USERS, ERROR } from './types';
+import {
+  GET_USERS, ERROR, SET_IDNP, SET_PHONE, SET_ACCESS_DATE,
+} from './types';
 
 const initial = {
   users: [],
   error: false,
   errors: {},
+  idnpSelected: '',
+  phoneSelected: '',
+  dataSelected: '',
 };
 
 const reducer = (state = initial, action) => {
   switch (action.type) {
     case GET_USERS:
       return { ...state, users: action.payload };
+    case SET_IDNP:
+      return { ...state, idnpSelected: action.payload };
+    case SET_PHONE:
+      return { ...state, phoneSelected: action.payload };
+    case SET_ACCESS_DATE:
+      return { ...state, dataSelected: action.payload };
     case ERROR:
       return { ...state, error: !state.error, errors: action.payload };
     default:

@@ -1,3 +1,8 @@
 const GET_USERS = 'GET_USERS';
 const ERROR = 'ERROR';
-export { GET_USERS, ERROR };
+const SET_IDNP = 'SET_IDNP';
+const SET_PHONE = 'SET_PHONE';
+const SET_ACCESS_DATE = 'SET_ACCESS_DATE';
+export {
+  GET_USERS, ERROR, SET_IDNP, SET_PHONE, SET_ACCESS_DATE,
+};

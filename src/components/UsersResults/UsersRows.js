@@ -7,9 +7,9 @@ const UsersRows = ({ user }) => {
     numele, prenumele, idnp, phone, lastTransaction, panCard,
   } = user;
   return (
-    <Row Row className="border-bottom pb-2 ">
+    <Row className="border-bottom py-1 ">
       <Col>
-        <span>
+        <span className="green">
           {numele}
           {' '}
           {prenumele}
