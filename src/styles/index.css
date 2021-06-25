@@ -69,3 +69,13 @@ code {
 .green{
   color:#7AA53C;
 }
+
+.fullheight{
+  min-height: 100vh !important;
+}
+
+@media (max-width: 991.98px) { 
+  .fullheight{
+     min-height: 30vh !important;
+  }
+ }

@@ -7,7 +7,6 @@ const formatDate = inputDate => {
 const checkUserName = (users, idnpSelected) => {
   const user = users.find(user => user.idnp === idnpSelected);
   if (idnpSelected.length === 13 && user) {
-    console.log(user.numele);
     return `${user.numele} ${user.prenumele}`;
   }
   return 'Nespecificat';
