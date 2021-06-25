@@ -26,6 +26,7 @@ export default () => {
   createServer({
     models: {
       user: Model,
+      dowonload: Model,
     },
     seeds(server) {
       for (let i = 0; i <= 50; i += 1) {
@@ -38,16 +39,19 @@ export default () => {
           lastTransaction: dateGenerator(new Date(2014, 0, 1), new Date()),
         });
       }
+
+      for (let j = 0; j < 1000; j += 1) {
+        server.create('dowonload', {
+          date: dateGenerator(new Date(2017, 0, 1), new Date()),
+          nrOfUsers: Number(numGen(3)),
+          nrUniqUsers: Number(numGen(2)),
+        });
+      }
     },
 
     routes() {
       this.get('/api/users', schema => schema.users.all());
-
-      this.post('/api/users', (schema, request) => {
-        const attrs = JSON.parse(request.requestBody);
-
-        return schema.users.create(attrs);
-      });
+      this.get('/api/downloads', schema => schema.dowonloads.all());
     },
   });
 };

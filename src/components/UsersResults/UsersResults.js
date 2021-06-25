@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import UsersRows from './UsersRows';
 import { filterer } from '../../utils';
-import { setName } from '../../redux/reducer/actions';
+import { setName } from '../../redux/UsersReducer/actions';
 
 const UsersResults = () => {
   const dispatch = useDispatch();

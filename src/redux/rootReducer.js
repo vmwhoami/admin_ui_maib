@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import reducer from './reducer/reducer';
+import UserReducer from './UsersReducer/reducer';
+import DownloadsReducer from './downloadsReducer/reducer';
 
-const rootReducer = combineReducers({ users: reducer });
+const rootReducer = combineReducers({ users: UserReducer, downloads: DownloadsReducer });
 
 export default rootReducer;

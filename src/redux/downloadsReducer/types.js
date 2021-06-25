@@ -1,0 +1,6 @@
+const GET_DOWNLOADS = 'GET_DOWNLOADS';
+const ERROR = 'ERROR';
+
+export {
+  GET_DOWNLOADS, ERROR,
+};

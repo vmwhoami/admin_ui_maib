@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import {
   setIdnp, setPhone, setAccessDate, clearFields,
-} from '../../redux/reducer/actions';
+} from '../../redux/UsersReducer/actions';
 
 const FindUser = () => {
   const dispatch = useDispatch();

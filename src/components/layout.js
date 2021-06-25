@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { getUsers } from '../redux/reducer/actions';
+import { getUsers } from '../redux/UsersReducer/actions';
 import NavBar from './navbar/NavBar';
 import LeftBar from './leftBar/LeftBar';
 
