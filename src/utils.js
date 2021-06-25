@@ -12,4 +12,28 @@ const checkUserName = (users, idnpSelected) => {
   return 'Nespecificat';
 };
 
-export { formatDate, checkUserName };
+const filterer = (users, idnpSelected, phoneSelected, reqDate, dateSelected) => {
+  const filteredUsers = users.filter(user => {
+    if (idnpSelected === '') {
+      return true;
+    }
+    return user.idnp.includes(idnpSelected);
+  })
+    .filter(user => {
+      if (phoneSelected === '') {
+        return true;
+      }
+      return user.phone.includes(phoneSelected);
+    })
+    .filter(user => {
+      if (dateSelected === '') {
+        return true;
+      }
+      const lastTrans = formatDate(user.lastTransaction).split(' ')[3].trim();
+      return lastTrans.includes(reqDate);
+    });
+
+  return filteredUsers;
+};
+
+export { formatDate, checkUserName, filterer };

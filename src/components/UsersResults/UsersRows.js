@@ -9,7 +9,7 @@ const UsersRows = ({ user }) => {
   } = user;
   const displayDate = formatDate(lastTransaction);
   return (
-    <Row className="border-bottom py-1 ">
+    <Row className="border-bottom py-1 ml-2 ">
       <Col>
         <span className="green">
           {numele}
