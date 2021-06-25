@@ -4,7 +4,7 @@ import {
   Form, Row, Col, Button,
 } from 'react-bootstrap';
 import {
-  setIdnp, setPhone, setAccessDate, clearFields,
+  setIdnp, setPhone, setAccessDate, clearFields, clearName,
 } from '../../redux/UsersReducer/actions';
 
 const FindUser = () => {
@@ -36,6 +36,7 @@ const FindUser = () => {
       date: '',
     });
     dispatch(clearFields());
+    dispatch(clearName());
   };
 
   return (

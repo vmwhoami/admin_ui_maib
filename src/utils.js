@@ -1,7 +1,7 @@
 const formatDate = inputDate => {
   const date = new Date(inputDate);
   return `${date.getHours()}:${date.getMinutes()} 
-  ${date.getDate() + 1}/${date.getMonth()}/${date.getFullYear()}`;
+  ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 };
 
 const checkUserName = (users, idnpSelected) => {

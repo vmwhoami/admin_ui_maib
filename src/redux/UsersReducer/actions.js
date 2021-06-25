@@ -5,7 +5,12 @@ import {
   SET_ACCESS_DATE,
   CLEAR_FIELDS,
   SET_NAME,
+  CLEAR_NAME,
 } from './types';
+
+const clearName = () => ({
+  type: CLEAR_NAME,
+});
 
 const setName = name => ({
   type: SET_NAME,
@@ -48,5 +53,5 @@ const getUsers = () => async dispatch => {
 };
 
 export {
-  getUsers, setIdnp, setPhone, setAccessDate, clearFields, setName,
+  getUsers, setIdnp, setPhone, setAccessDate, clearFields, setName, clearName,
 };
