@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import formatDate from '../../utils';
+import { formatDate } from '../../utils';
 
 const UsersRows = ({ user }) => {
   const {

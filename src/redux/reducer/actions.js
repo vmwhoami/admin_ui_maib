@@ -1,7 +1,11 @@
 import axios from 'axios';
 import {
-  GET_USERS, ERROR, SET_IDNP, SET_PHONE, SET_ACCESS_DATE,
+  GET_USERS, ERROR, SET_IDNP, SET_PHONE, SET_ACCESS_DATE, CLEAR_FIELDS,
 } from './types';
+
+const clearFields = () => ({
+  type: CLEAR_FIELDS,
+});
 
 const setUsers = users => ({
   type: GET_USERS,
@@ -35,5 +39,5 @@ const getUsers = () => async dispatch => {
 };
 
 export {
-  getUsers, setIdnp, setPhone, setAccessDate,
+  getUsers, setIdnp, setPhone, setAccessDate, clearFields,
 };

@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import {
   Form, Row, Col, Button,
 } from 'react-bootstrap';
-import { setIdnp, setPhone, setAccessDate } from '../../redux/reducer/actions';
+import {
+  setIdnp, setPhone, setAccessDate, clearFields,
+} from '../../redux/reducer/actions';
 
 const FindUser = () => {
   const dispatch = useDispatch();
@@ -25,6 +27,15 @@ const FindUser = () => {
     dispatch(setIdnp(fields.idnp.trim()));
     dispatch(setPhone(fields.phone.trim()));
     dispatch(setAccessDate(fields.date.trim()));
+  };
+  const clearField = () => {
+    setFields({
+      ...fields,
+      idnp: '',
+      phone: '',
+      date: '',
+    });
+    dispatch(clearFields());
   };
 
   return (
@@ -70,7 +81,14 @@ const FindUser = () => {
                 type="date"
               />
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridZip">
+            <Form.Group as={Col} className="d-flex" controlId="formGridZip">
+              <Button
+                onClick={clearField}
+                type="button"
+                className="w-100 rounded-0 bg-danger text-uppercase border-0"
+              >
+                curăță
+              </Button>
               <Button
                 type="submit"
                 className="w-100 rounded-0 title text-uppercase border-0"

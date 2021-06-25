@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import UsersRows from './UsersRows';
-import formatDate from '../../utils';
+import { formatDate, checkUserName } from '../../utils';
 
 const UsersResults = () => {
   const reducer = useSelector(state => state.users);
@@ -12,11 +12,14 @@ const UsersResults = () => {
   const searchDate = new Date(dateSelected);
   const somdeDate = () => `${searchDate.getDate()}/${searchDate.getMonth() + 1}/${searchDate.getFullYear()}`;
   const reqDate = somdeDate();
+
   return (
     <>
       <Row>
         <h2 className="ml-3">
-          Resultatele cautare:Toti
+          Resultatele cautarii:
+          {' '}
+          {checkUserName(users, idnpSelected)}
         </h2>
       </Row>
       <Row className="border-bottom pb-2 ">

@@ -1,5 +1,5 @@
 import {
-  GET_USERS, ERROR, SET_IDNP, SET_PHONE, SET_ACCESS_DATE,
+  GET_USERS, ERROR, SET_IDNP, SET_PHONE, SET_ACCESS_DATE, CLEAR_FIELDS,
 } from './types';
 
 const initial = {
@@ -21,6 +21,13 @@ const reducer = (state = initial, action) => {
       return { ...state, phoneSelected: action.payload };
     case SET_ACCESS_DATE:
       return { ...state, dateSelected: action.payload };
+    case CLEAR_FIELDS:
+      return {
+        ...state,
+        idnpSelected: '',
+        phoneSelected: '',
+        dateSelected: '',
+      };
     case ERROR:
       return { ...state, error: !state.error, errors: action.payload };
     default:
