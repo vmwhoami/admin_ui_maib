@@ -26,9 +26,16 @@ export default () => {
   createServer({
     models: {
       user: Model,
-      dowonload: Model,
+      download: Model,
     },
     seeds(server) {
+      for (let j = 0; j < 1000; j += 1) {
+        server.create('download', {
+          date: dateGenerator(new Date(2017, 0, 1), new Date()),
+          nrOfUsers: Number(numGen(3)),
+          nrUniqUsers: Number(numGen(2)),
+        });
+      }
       for (let i = 0; i <= 50; i += 1) {
         server.create('user', {
           numele: generateName(0),
@@ -39,19 +46,11 @@ export default () => {
           lastTransaction: dateGenerator(new Date(2014, 0, 1), new Date()),
         });
       }
-
-      for (let j = 0; j < 1000; j += 1) {
-        server.create('dowonload', {
-          date: dateGenerator(new Date(2017, 0, 1), new Date()),
-          nrOfUsers: Number(numGen(3)),
-          nrUniqUsers: Number(numGen(2)),
-        });
-      }
     },
 
     routes() {
       this.get('/api/users', schema => schema.users.all());
-      this.get('/api/downloads', schema => schema.dowonloads.all());
+      this.get('/api/downloads', schema => schema.downloads.all());
     },
   });
 };

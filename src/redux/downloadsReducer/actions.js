@@ -3,9 +3,9 @@ import {
   GET_DOWNLOADS, ERROR,
 } from './types';
 
-const setDownloads = name => ({
+const setDownloads = downloads => ({
   type: GET_DOWNLOADS,
-  payload: name,
+  payload: downloads,
 });
 
 const setError = error => ({
@@ -13,9 +13,9 @@ const setError = error => ({
   payload: error,
 });
 const getDowloads = () => async dispatch => {
-  axios.get('/api/downloads').then(users => {
-    const { data } = users;
-    dispatch(setDownloads(data.users));
+  axios.get('/api/downloads').then(info => {
+    const { data } = info;
+    dispatch(setDownloads(data.downloads));
   }).catch(error => {
     dispatch(setError(error));
   });
