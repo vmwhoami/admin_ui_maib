@@ -1,7 +1,12 @@
 import axios from 'axios';
 import {
-  GET_DOWNLOADS, ERROR,
+  GET_DOWNLOADS, ERROR, SET_TIME_RANGE,
 } from './types';
+
+const setTimeRange = timeRange => ({
+  type: SET_TIME_RANGE,
+  payload: timeRange,
+});
 
 const setDownloads = downloads => ({
   type: GET_DOWNLOADS,
@@ -22,5 +27,5 @@ const getDowloads = () => async dispatch => {
 };
 
 export {
-  getDowloads, setDownloads,
+  getDowloads, setDownloads, setTimeRange,
 };
