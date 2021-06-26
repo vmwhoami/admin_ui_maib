@@ -11,13 +11,15 @@ const ChartFilter = () => {
   const dispatch = useDispatch();
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
-  const handleSubmit = () => {
-    console.log('Reached this part');
-    dispatch(setTimeRange(dateRange));
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (startDate && endDate) {
+      dispatch(setTimeRange(dateRange));
+    }
   };
   return (
     <>
-      <Form as={Row} onSubmit={handleSubmit} className="m-4 d-flex justify-content-between">
+      <Form onSubmit={handleSubmit} className="m-4 d-flex justify-content-between">
         <Button type="submit" className="text-uppercase rounded-0 title border-0 py-0">Configure raport</Button>
         <div className="date-select px-4 py-2">
           { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}

@@ -12,7 +12,7 @@ const initial = {
 const reducer = (state = initial, action) => {
   switch (action.type) {
     case SET_TIME_RANGE:
-      return { ...state, timeRange: action.payload };
+      return { ...state, timeRange: [...action.payload] };
     case GET_DOWNLOADS:
       return { ...state, downloads: action.payload };
     case ERROR:
