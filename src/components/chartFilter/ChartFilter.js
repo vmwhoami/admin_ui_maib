@@ -32,12 +32,15 @@ const ChartFilter = () => {
             onChange={update => {
               setDateRange(update);
             }}
+            showMonthDropdown
+            showYearDropdown
+            dropdownMode="select"
           // isClearable
           />
         </div>
       </Form>
       <Row>
-        <Col lg={4} sm={6} className="py-4 ml-2 box-shadow">
+        <Col lg={4} sm={6} className="py-4 ml-3 box-shadow">
           <h2>Hello world</h2>
         </Col>
       </Row>
