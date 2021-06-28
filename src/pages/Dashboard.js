@@ -6,6 +6,7 @@ import ChartNav from '../components/ChartNav';
 import ChartFilter from '../components/chartFilter/ChartFilter';
 import Chart from '../components/chart/chart';
 import { getDowloads } from '../redux/downloadsReducer/actions';
+import Report from '../components/report/report';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Dashboard = () => {
       <ChartNav />
       <ChartFilter />
       <Chart />
+      <Report />
     </Layout>
   );
 };

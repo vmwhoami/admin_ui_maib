@@ -20,7 +20,7 @@ const Chart = () => {
             {
               label: 'Unique Users',
               data: downloads.map(user => user.nrUniqUsers),
-              backgroundColor: '#5788e46e',
+              backgroundColor: '#9589e42e',
             },
           ],
         }}
