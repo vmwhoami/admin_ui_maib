@@ -10,9 +10,23 @@ const Chart = () => {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
   const { downloads, timeRange } = downUsers;
+  const [start, end] = timeRange;
+  const startDate = new Date(start);
+  const endDate = new Date(end);
+
+  const results = downloads.filter(d => {
+    const date = new Date(d.date);
+
+    if (start && end) {
+      return startDate <= date && date <= endDate;
+    }
+    return d;
+  });
+
+  console.log(results);
 
   return (
-    <Row className="box-shadow mt-5 mx-1">
+    <Row className="box-shadow mt-5 mx-1 p-2">
       <Line
         data={{
           labels: timeRange.map(date => formatDate(date)),
