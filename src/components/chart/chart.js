@@ -23,19 +23,20 @@ const Chart = () => {
     return d;
   });
 
-  console.log(results);
-
   return (
     <Row className="box-shadow mt-5 mx-1 p-2">
       <Line
         data={{
-          labels: timeRange.map(date => formatDate(date)),
+          labels: results.map(users => formatDate(users.date)),
           datasets: [
             {
               label: 'Unique Users',
               data: downloads.map(user => user.nrUniqUsers),
               backgroundColor: '#9589e42e',
             },
+          ],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
           ],
         }}
         options={{

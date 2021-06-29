@@ -45,36 +45,40 @@ code {
   z-index: 3;
 }
 
-.navbar-green{
+.navbar-green {
   background-color: #036647 !important;
 }
 
-.logo{
-  font-size: 2rem
-}
-.left-bar{
-  background-color: #FAFAFA;
-  box-shadow: 4px 0px 10px -3px rgba(0,0,0,0.20);
+.logo {
+  font-size: 2rem;
 }
 
-.cust-button{
- font-size: 20px !important;
+.left-bar {
+  background-color: #fafafa;
+  box-shadow: 4px 0 10px -3px rgba(0, 0, 0, 0.2);
 }
-.title{
-  background-color: #7AA53C;
+
+.cust-button {
+  font-size: 20px !important;
 }
-.btn.title:hover{
+
+.title {
+  background-color: #7aa53c;
+}
+
+.btn.title:hover {
   background-color: #036647 !important;
 }
-.green{
-  color:#7AA53C;
+
+.green {
+  color: #7aa53c;
 }
 
-.fullheight{
+.fullheight {
   min-height: 100vh !important;
 }
 
-.underline::after{
+.underline::after {
   content: "";
   position: absolute;
   bottom: -8px;
@@ -83,24 +87,46 @@ code {
   width: 85px;
   height: 4px;
 }
-.box-shadow{
-  box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.3);
+
+.box-shadow {
+  box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.3);
 }
-.date-select{
+
+.date-select {
   display: flex;
   flex-direction: column;
-  background-color: #F0F0F0;
-  box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.3);
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.3);
 }
-.date-select input{
+
+.date-select input {
   background-color: transparent !important;
 }
 
-.form-select{
+.form-select {
   background-color: transparent !important;
 }
-@media (max-width: 991.98px) { 
-  .fullheight{
-     min-height: 30vh !important;
+
+.react-datepicker__input-container input {
+  padding: 5px 5px;
+  border: none;
+  position: relative;
+}
+
+
+.react-datepicker__input-container input::after {
+  content: "";
+  position: absolute;
+  background-color: red;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 200px;
+  z-index: 200000;
+}
+
+@media (max-width: 991.98px) {
+  .fullheight {
+    min-height: 30vh !important;
   }
- }
+}
