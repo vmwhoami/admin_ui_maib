@@ -1,5 +1,8 @@
-const formatDate = inputDate => {
+const formatDate = (inputDate, hours = false) => {
   const date = new Date(inputDate);
+  if (hours) {
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  }
   return `${date.getHours()}:${date.getMinutes()} 
   ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 };
