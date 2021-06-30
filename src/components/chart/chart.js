@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
+import ReportResults from './reportResults';
 
 const Chart = () => {
   const downUsers = useSelector(state => state.downloads);
@@ -34,11 +35,12 @@ const Chart = () => {
               {
                 label: 'Unique Users',
                 data: downloads.map(user => user.nrUniqUsers),
-                backgroundColor: '#9589e42e',
+                backgroundColor: '#B4DFC4',
+                fill: true,
+                line: {
+                  tension: 0,
+                },
               },
-            ],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
             ],
           }}
           options={{
@@ -46,12 +48,15 @@ const Chart = () => {
           }}
         />
       </Row>
-      <Row className="border-bottom box-shadow mt-5 mx-1 p-3">
-        <Col><h6>Data</h6></Col>
-        <Col><h6>Numar utilizatori total</h6></Col>
-        <Col><h6>Numar utilizatori unici</h6></Col>
-        <Col><h6>Numar utilizatori unici</h6></Col>
-      </Row>
+      <div className="box-shadow mb-5 pb-5">
+        <Row className="border-bottom mt-5 mx-1 p-3 text-center">
+          <Col><h6>Data</h6></Col>
+          <Col><h6>Numar utilizatori total</h6></Col>
+          <Col><h6>Numar utilizatori unici</h6></Col>
+          <Col><h6>Numar utilizatori unici</h6></Col>
+        </Row>
+        {results.map(result => <ReportResults key={result.id} report={result} />)}
+      </div>
     </>
   );
 };
