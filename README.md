@@ -80,7 +80,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### Deployment
 
 ```bash
-   git add .
+    git add .
     git commit -m "ready for the first push to Heroku"
     Heroku create $APP-NAME --buildpack mars/create-react-app
     git push Heroku $BRANCH_NAME: master
