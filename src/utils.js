@@ -39,4 +39,15 @@ const filterer = (users, idnpSelected, phoneSelected, reqDate, dateSelected) => 
   return filteredUsers;
 };
 
-export { formatDate, checkUserName, filterer };
+const timeDifference = (endDate, startDate) => {
+  let timeDifference;
+  if (endDate && startDate) {
+    timeDifference = startDate.getTime() - endDate.getTime();
+    return Math.floor(timeDifference / (1000 * 3600 * 24));
+  }
+  return 'all';
+};
+
+export {
+  formatDate, checkUserName, filterer, timeDifference,
+};

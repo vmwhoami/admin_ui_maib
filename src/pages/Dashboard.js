@@ -11,6 +11,11 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDowloads());
+    const interval = setInterval(() => {
+      dispatch(getDowloads());
+    }, 10000);
+
+    return () => clearInterval(interval);
   }, []);
   return (
     <Layout>

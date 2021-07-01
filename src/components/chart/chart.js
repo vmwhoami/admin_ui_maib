@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import ReportResults from './reportResults';
+import { timeDifference } from '../../utils';
+import { setTimeDifference } from '../../redux/downloadsReducer/actions';
 
 const Chart = () => {
+  const dispatch = useDispatch();
   const downUsers = useSelector(state => state.downloads);
   const formatDate = dateString => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -14,10 +17,12 @@ const Chart = () => {
   const [start, end] = timeRange;
   const startDate = new Date(start);
   const endDate = new Date(end);
-
+  useEffect(() => {
+    const timeDiff = timeDifference(startDate, endDate);
+    dispatch(setTimeDifference(timeDiff));
+  }, [start, end]);
   const results = downloads.filter(d => {
     const date = new Date(d.date);
-
     if (start && end) {
       return startDate <= date && date <= endDate;
     }
