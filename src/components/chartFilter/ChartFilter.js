@@ -21,6 +21,7 @@ const ChartFilter = () => {
   };
 
   const diff = getDifference(startDate, timeDifference);
+
   const prevDate = new Date(diff);
   const results = downloads.filter(d => {
     const date = new Date(d.date);
@@ -29,8 +30,12 @@ const ChartFilter = () => {
     }
     return d;
   });
+  const activeUserDownloads = () => results.reduce((a, b) => a + (b.nrUniqUsers || 0), 0);
+  const previosUniqUsers = activeUserDownloads();
+  const percentage = `${(((activeDownloads - previosUniqUsers) / activeDownloads) * 100).toFixed(2)}%`;
 
-  console.log(results);
+  console.log(activeDownloads, previosUniqUsers);
+
   const handleSubmit = e => {
     e.preventDefault();
     if (startDate && endDate) {
@@ -57,14 +62,20 @@ const ChartFilter = () => {
             showMonthDropdown
             showYearDropdown
             dropdownMode="select"
-          // isClearable
           />
         </div>
       </Form>
       <Row>
         <Col lg={4} sm={6} className="py-4 ml-3 box-shadow">
           <h6>Instalari pe dispozitive active</h6>
-          <h2>{activeDownloads}</h2>
+          <Col className="d-flex align-items-center">
+            <h2 className="mr-2">
+              {activeDownloads}
+            </h2>
+            <span>
+              {`${percentage} vs previous ${timeDifference} days`}
+            </span>
+          </Col>
         </Col>
       </Row>
     </>
