@@ -45,9 +45,13 @@ const timeDifference = (endDate, startDate) => {
     timeDifference = startDate.getTime() - endDate.getTime();
     return Math.floor(timeDifference / (1000 * 3600 * 24));
   }
-  return 'all';
+  return null;
+};
+
+const PreviousDaysNums = () => {
+
 };
 
 export {
-  formatDate, checkUserName, filterer, timeDifference,
+  formatDate, checkUserName, filterer, timeDifference, PreviousDaysNums,
 };

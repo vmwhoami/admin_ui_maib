@@ -10,7 +10,6 @@ const chartData = (results, downloads) => {
       {
         label: 'Unique Users',
         data: downloads.map(user => user.nrUniqUsers),
-        title: 'hello world',
         lineTension: 0.4,
         fill: true,
         backgroundColor: '#B4DFC4',
@@ -21,6 +20,8 @@ const chartData = (results, downloads) => {
   return data;
 };
 const options = {
+  normalized: true,
+  showLine: false,
   animation: {
     duration: 0,
   },

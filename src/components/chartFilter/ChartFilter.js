@@ -10,9 +10,27 @@ import { setTimeRange } from '../../redux/downloadsReducer/actions';
 const ChartFilter = () => {
   const dispatch = useDispatch();
   const downUsers = useSelector(state => state.downloads);
-  const { timeDifference } = downUsers;
+  const { timeDifference, activeDownloads, downloads } = downUsers;
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
+  const getDifference = (startDate, timeDifference) => {
+    if (startDate && timeDifference) {
+      return startDate.getTime() - (timeDifference * ((1000 * 3600 * 24)));
+    }
+    return null;
+  };
+
+  const diff = getDifference(startDate, timeDifference);
+  const prevDate = new Date(diff);
+  const results = downloads.filter(d => {
+    const date = new Date(d.date);
+    if (prevDate && startDate) {
+      return prevDate <= date && date <= startDate;
+    }
+    return d;
+  });
+
+  console.log(results);
   const handleSubmit = e => {
     e.preventDefault();
     if (startDate && endDate) {
@@ -46,6 +64,7 @@ const ChartFilter = () => {
       <Row>
         <Col lg={4} sm={6} className="py-4 ml-3 box-shadow">
           <h6>Instalari pe dispozitive active</h6>
+          <h2>{activeDownloads}</h2>
         </Col>
       </Row>
     </>

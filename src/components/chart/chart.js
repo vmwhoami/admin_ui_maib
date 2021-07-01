@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import ReportResults from './reportResults';
 import { timeDifference } from '../../utils';
-import { setTimeDifference } from '../../redux/downloadsReducer/actions';
+import { setTimeDifference, setActiveDownloads } from '../../redux/downloadsReducer/actions';
 import { chartData, options } from '../../chartOptions';
 
 const Chart = () => {
@@ -14,11 +14,6 @@ const Chart = () => {
   const [start, end] = timeRange;
   const startDate = new Date(start);
   const endDate = new Date(end);
-  useEffect(() => {
-    const timeDiff = timeDifference(startDate, endDate);
-    dispatch(setTimeDifference(timeDiff));
-  }, [start, end]);
-
   const results = downloads.filter(d => {
     const date = new Date(d.date);
     if (start && end) {
@@ -28,7 +23,16 @@ const Chart = () => {
   });
   const activeUserDownloads = () => results.reduce((a, b) => a + (b.nrUniqUsers || 0), 0);
   const activeDown = activeUserDownloads();
-  console.log(activeDown);
+
+  useEffect(() => {
+    dispatch(setActiveDownloads(activeDown));
+  }, [activeDown]);
+
+  useEffect(() => {
+    const timeDiff = timeDifference(startDate, endDate);
+    dispatch(setTimeDifference(timeDiff));
+  }, [start, end]);
+
   const data = chartData(results, downloads);
 
   return (

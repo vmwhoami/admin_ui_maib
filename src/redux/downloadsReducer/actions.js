@@ -1,7 +1,12 @@
 import axios from 'axios';
 import {
-  GET_DOWNLOADS, ERROR, SET_TIME_RANGE, TIME_DIFFERENCE,
+  GET_DOWNLOADS, ERROR, SET_TIME_RANGE, TIME_DIFFERENCE, SET_ACTIVE_DOWNLOADS,
 } from './types';
+
+const setActiveDownloads = activeDown => ({
+  type: SET_ACTIVE_DOWNLOADS,
+  payload: activeDown,
+});
 
 const setTimeDifference = daysDifference => ({
   type: TIME_DIFFERENCE,
@@ -32,5 +37,5 @@ const getDowloads = () => async dispatch => {
 };
 
 export {
-  getDowloads, setDownloads, setTimeRange, setTimeDifference,
+  getDowloads, setDownloads, setTimeRange, setTimeDifference, setActiveDownloads,
 };
