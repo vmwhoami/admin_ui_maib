@@ -34,8 +34,6 @@ const ChartFilter = () => {
   const previosUniqUsers = activeUserDownloads();
   const percentage = `${(((activeDownloads - previosUniqUsers) / activeDownloads) * 100).toFixed(2)}%`;
 
-  console.log(activeDownloads, previosUniqUsers);
-
   const handleSubmit = e => {
     e.preventDefault();
     if (startDate && endDate) {
@@ -73,7 +71,7 @@ const ChartFilter = () => {
               {activeDownloads}
             </h2>
             <span>
-              {`${percentage} vs previous ${timeDifference} days`}
+              {`${percentage} vs previous ${timeDifference || ''} days`}
             </span>
           </Col>
         </Col>
