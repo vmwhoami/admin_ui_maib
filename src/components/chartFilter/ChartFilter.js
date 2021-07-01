@@ -9,7 +9,7 @@ import { setTimeRange } from '../../redux/downloadsReducer/actions';
 
 const ChartFilter = () => {
   const dispatch = useDispatch();
-  const downUsers = useSelector(state => state.downloads);
+  const downUsers = useSelector((state) => state.downloads);
   const { timeDifference, activeDownloads, downloads } = downUsers;
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
@@ -23,7 +23,7 @@ const ChartFilter = () => {
   const diff = getDifference(startDate, timeDifference);
 
   const prevDate = new Date(diff);
-  const results = downloads.filter(d => {
+  const results = downloads.filter((d) => {
     const date = new Date(d.date);
     if (prevDate && startDate) {
       return prevDate <= date && date <= startDate;
@@ -34,7 +34,7 @@ const ChartFilter = () => {
   const previosUniqUsers = activeUserDownloads();
   const percentage = `${(((activeDownloads - previosUniqUsers) / activeDownloads) * 100).toFixed(2)}%`;
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (startDate && endDate) {
       dispatch(setTimeRange(dateRange));
@@ -54,7 +54,7 @@ const ChartFilter = () => {
             selectsRange
             startDate={startDate}
             endDate={endDate}
-            onChange={update => {
+            onChange={(update) => {
               setDateRange(update);
             }}
             showMonthDropdown

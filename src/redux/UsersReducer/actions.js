@@ -12,7 +12,7 @@ const clearName = () => ({
   type: CLEAR_NAME,
 });
 
-const setName = name => ({
+const setName = (name) => ({
   type: SET_NAME,
   payload: name,
 });
@@ -21,33 +21,33 @@ const clearFields = () => ({
   type: CLEAR_FIELDS,
 });
 
-const setUsers = users => ({
+const setUsers = (users) => ({
   type: GET_USERS,
   payload: users,
 });
 
-const setIdnp = indp => ({
+const setIdnp = (indp) => ({
   type: SET_IDNP,
   payload: indp,
 });
 
-const setPhone = phone => ({
+const setPhone = (phone) => ({
   type: SET_PHONE,
   payload: phone,
 });
-const setAccessDate = date => ({
+const setAccessDate = (date) => ({
   type: SET_ACCESS_DATE,
   payload: date,
 });
-const setError = error => ({
+const setError = (error) => ({
   type: ERROR,
   payload: error,
 });
-const getUsers = () => async dispatch => {
-  axios.get('/api/users').then(users => {
+const getUsers = () => async (dispatch) => {
+  axios.get('/api/users').then((users) => {
     const { data } = users;
     dispatch(setUsers(data.users));
-  }).catch(error => {
+  }).catch((error) => {
     dispatch(setError(error));
   });
 };

@@ -14,7 +14,7 @@ const FindUser = () => {
     phone: '',
     date: '',
   });
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFields({
       ...fields,
@@ -22,7 +22,7 @@ const FindUser = () => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setIdnp(fields.idnp.trim()));
     dispatch(setPhone(fields.phone.trim()));

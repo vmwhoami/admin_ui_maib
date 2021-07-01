@@ -7,7 +7,7 @@ import { setName } from '../../redux/UsersReducer/actions';
 
 const UsersResults = () => {
   const dispatch = useDispatch();
-  const reducer = useSelector(state => state.users);
+  const reducer = useSelector((state) => state.users);
   const {
     users, idnpSelected, phoneSelected, dateSelected, displayName,
   } = reducer;
@@ -42,7 +42,7 @@ const UsersResults = () => {
         <Col><h6>PAN Card</h6></Col>
         <Col><h6>Last Transaction</h6></Col>
       </Row>
-      {filtered.map(user => (
+      {filtered.map((user) => (
         <UsersRows key={user.id} user={user} />
       ))}
     </>

@@ -1,15 +1,15 @@
-const formatDate = dateString => {
+const formatDate = (dateString) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
 const chartData = (results, downloads) => {
   const data = {
-    labels: results.map(users => formatDate(users.date)),
+    labels: results.map((users) => formatDate(users.date)),
     datasets: [
       {
         label: 'Unique Users',
-        data: downloads.map(user => user.nrUniqUsers),
+        data: downloads.map((user) => user.nrUniqUsers),
         lineTension: 0.4,
         fill: true,
         backgroundColor: '#B4DFC4',

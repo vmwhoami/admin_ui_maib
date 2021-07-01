@@ -8,7 +8,7 @@ const formatDate = (inputDate, hours = false) => {
 };
 
 const checkUserName = (users, idnpSelected) => {
-  const user = users.find(user => user.idnp === idnpSelected);
+  const user = users.find((user) => user.idnp === idnpSelected);
   if (idnpSelected.length === 13 && user) {
     return `${user.numele} ${user.prenumele}`;
   }
@@ -16,19 +16,19 @@ const checkUserName = (users, idnpSelected) => {
 };
 
 const filterer = (users, idnpSelected, phoneSelected, reqDate, dateSelected) => {
-  const filteredUsers = users.filter(user => {
+  const filteredUsers = users.filter((user) => {
     if (idnpSelected === '') {
       return true;
     }
     return user.idnp.includes(idnpSelected);
   })
-    .filter(user => {
+    .filter((user) => {
       if (phoneSelected === '') {
         return true;
       }
       return user.phone.includes(phoneSelected);
     })
-    .filter(user => {
+    .filter((user) => {
       if (dateSelected === '') {
         return true;
       }
