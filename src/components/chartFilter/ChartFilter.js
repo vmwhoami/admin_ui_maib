@@ -45,7 +45,7 @@ const ChartFilter = () => {
       </Form>
       <Row>
         <Col lg={4} sm={6} className="py-4 ml-3 box-shadow">
-          <h2>Hello world</h2>
+          <h6>Instalari pe dispozitive active</h6>
         </Col>
       </Row>
     </>

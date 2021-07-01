@@ -5,14 +5,11 @@ import { Line } from 'react-chartjs-2';
 import ReportResults from './reportResults';
 import { timeDifference } from '../../utils';
 import { setTimeDifference } from '../../redux/downloadsReducer/actions';
+import { chartData, options } from '../../chartOptions';
 
 const Chart = () => {
   const dispatch = useDispatch();
   const downUsers = useSelector(state => state.downloads);
-  const formatDate = dateString => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
   const { downloads, timeRange } = downUsers;
   const [start, end] = timeRange;
   const startDate = new Date(start);
@@ -21,6 +18,7 @@ const Chart = () => {
     const timeDiff = timeDifference(startDate, endDate);
     dispatch(setTimeDifference(timeDiff));
   }, [start, end]);
+
   const results = downloads.filter(d => {
     const date = new Date(d.date);
     if (start && end) {
@@ -28,30 +26,15 @@ const Chart = () => {
     }
     return d;
   });
+  const activeUserDownloads = () => results.reduce((a, b) => a + (b.nrUniqUsers || 0), 0);
+  const activeDown = activeUserDownloads();
+  console.log(activeDown);
+  const data = chartData(results, downloads);
 
   return (
     <>
       <Row className="box-shadow mt-5 mx-1 p-2">
-        <Line
-          data={{
-            labels: results.map(users => formatDate(users.date)),
-            fill: true,
-            datasets: [
-              {
-                label: 'Unique Users',
-                data: downloads.map(user => user.nrUniqUsers),
-                backgroundColor: '#B4DFC4',
-                fill: true,
-                line: {
-                  tension: 0,
-                },
-              },
-            ],
-          }}
-          options={{
-            maintainAspectRatio: true,
-          }}
-        />
+        <Line data={data} options={options} />
       </Row>
       <div className="box-shadow mb-5 pb-5">
         <Row className="border-bottom mt-5 mx-1 p-3 text-center">

@@ -29,7 +29,7 @@ export default () => {
       download: Model,
     },
     seeds(server) {
-      for (let j = 0; j < 10; j += 1) {
+      for (let j = 0; j < 1000; j += 1) {
         server.create('download', {
           date: dateGenerator(new Date(2017, 0, 1), new Date()),
           nrOfUsers: Number(numGen(3)),
