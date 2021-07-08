@@ -1,28 +1,27 @@
-## Catalogue-Of-Statisctics
+## Admin Ui Maib
 
-In this project, I developed a front-end web application, catalogue of Cryptocurrencies using [CoinAPI](https://www.coinapi.io/) 
-to collect the data from my React Application.
+### Requirements
 
-The application features include:
+- Must use the latest ReactJS.
+- Mock web-service requests as needed. Assume API response delay ranging from 2ms to 15s.
+- Use a favourite set of tools
+- Best code practices.
 
-Listing all Crypto that is worth more than 1$.
-Listing Crypto that is worth more than 10$.
-Listing Crypto that is worth more than 50$.
-Listing Crypto that is worth more than 100$.
-Display an error if a connection to the API is not established.
-Dynamic routes for individual coin item and display price stats for the last 15 days.
+- Selecting a period from the picker (upper-right portion) should re-populate the “card”, “chart” and “list” parts.
+- Data should refresh automatically every 10s.
 
+- UI should allow searching by 3 input fields.
+- After a “search” button is pressed, list items should be re-populated with API response.
 
-![screenshot](./catalogue-of-statistics.gif)
+![screenshot](./maib_admin_test.gif)
+
+## Time estimate
+
+A week with working 4 hours a day sometimes less some times more.
 
 ### Live Demo
 
-Open [this link](https://catalogue-of-statisctics.netlify.app/) to view it live.
-
-
-## Video Presentation
-
-[YouTube link](https://youtu.be/jjUJHzfOuIA)
+Open [this link](https://maib-admin-test.netlify.app/) to view it live.
 
 ## Getting Started
 
@@ -35,8 +34,8 @@ Make sure Node.js is running on your local machine
 ### Setup
 
 ```bash
-$ git clone https://github.com/vmwhoami/catalogue-of-statisctics.git
-$ cd catalogue-of-statisctics
+$ git clone https://github.com/vmwhoami/admin_ui_maib
+$ cd admin_ui_maib
 ```
 
 Install modules:
@@ -44,18 +43,12 @@ Install modules:
 ```
 npm install
 ```
-## Setup your API Key
-
-I used the  [COINAPI](https://www.coinapi.io/). Signup and get your key.
-Create .env file, open it and add REACT_APP_API_KEY=xxxxxxxxxxxxxxxxxxxxx
-
 
 Run the App:
+
 ```
 npm start
 ```
-
-
 
 ## Available Scripts
 
@@ -85,11 +78,12 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### Deployment
+
 ```bash
-   git add .
-    git commit -m "ready for first push to heroku"  
-    heroku create $APP-NAME --buildpack mars/create-react-app
-    git push heroku $BRANCH_NAME:master
+    git add .
+    git commit -m "ready for the first push to Heroku"
+    Heroku create $APP-NAME --buildpack mars/create-react-app
+    git push Heroku $BRANCH_NAME: master
 ```
 
 ## Author
@@ -99,7 +93,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Github: [@vmwhoami](https://github.com/vmwhoami/)
 - Twitter: [@vmwhoami](https://twitter.com/vmwhoami)
 - Linkedin: [vitalie-melnic](https://www.linkedin.com/in/vitalie-melnic/)
- 
 
 ## License
 
@@ -114,7 +107,3 @@ Feel free to check the [issues page](https://github.com/vmwhoami/catalogue-of-st
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
- - [Microverse Inc](https://www.microverse.org/)
- - [COINAPI](https://www.coinapi.io/)
